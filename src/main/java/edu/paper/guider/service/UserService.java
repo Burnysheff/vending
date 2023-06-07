@@ -66,11 +66,11 @@ public class UserService implements UserDetailsService {
     }
 
     public boolean checkNames(String name) {
-        for (User user : userRepository.findAll()) {
+        /**for (User user : userRepository.findAll()) {
             if (user.getUsername().equals(name)) {
                 return false;
             }
-        }
+        }*/
         return true;
     }
 
