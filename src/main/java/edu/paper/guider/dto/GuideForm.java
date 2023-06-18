@@ -16,4 +16,5 @@ public class GuideForm {
     private List<String> theme;
     private String text;
     private UserForm user;
+    private String link;
 }

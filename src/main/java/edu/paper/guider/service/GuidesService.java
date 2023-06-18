@@ -107,6 +107,7 @@ public class GuidesService {
 
         guide.setTitle(form.getTitle());
         guide.setText(form.getText());
+        guide.setLink(form.getLink());
 
         Set<Preview> prev = new HashSet<>();
         for (String str : form.getPreview()) {

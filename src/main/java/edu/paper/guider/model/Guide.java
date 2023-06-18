@@ -36,4 +36,7 @@ public class Guide {
 
     @Column(name = "text", columnDefinition = "NVARCHAR(MAX)")
     private String text;
+
+    @Column(name = "link", columnDefinition = "NVARCHAR(MAX)")
+    private String link;
 }
