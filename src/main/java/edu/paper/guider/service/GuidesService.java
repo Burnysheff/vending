@@ -14,20 +14,18 @@ import java.util.stream.StreamSupport;
 
 @Service
 public class GuidesService {
-    EmailService emailService;
     PreviewRepository previewRepository;
     CommentsRepository commentsRepository;
     ThemeRepository themeRepository;
     GuidesRepository guidesRepository;
     UserRepository userRepository;
 
-    public GuidesService(ThemeRepository themeRepository, GuidesRepository guidesRepository, PreviewRepository previewRepository, UserRepository userRepository, CommentsRepository commentsRepository, EmailService service) {
+    public GuidesService(ThemeRepository themeRepository, GuidesRepository guidesRepository, PreviewRepository previewRepository, UserRepository userRepository, CommentsRepository commentsRepository) {
         this.themeRepository = themeRepository;
         this.guidesRepository = guidesRepository;
         this.previewRepository = previewRepository;
         this.userRepository = userRepository;
         this.commentsRepository = commentsRepository;
-        this.emailService = service;
     }
 
     public List<Guide> getAllGuides() {
@@ -143,9 +141,5 @@ public class GuidesService {
         guidesRepository.save(guide);
 
         // sendEmail(form.getTheme(), guide.getId(), form.getTitle());
-    }
-
-    private void sendEmail(List<String> themes, long code, String title) {
-        emailService.sendEmail("burnyshevni1@gmail.com", "New Guide!", "There are some new guides out there!\nCheck some " + title + " hacks on " + "/guides/" + code);
     }
 }
