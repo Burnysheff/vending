@@ -142,7 +142,7 @@ public class GuidesService {
         guide.setUser(user);
         guidesRepository.save(guide);
 
-        sendEmail(form.getTheme(), guide.getId(), form.getTitle());
+        // sendEmail(form.getTheme(), guide.getId(), form.getTitle());
     }
 
     private void sendEmail(List<String> themes, long code, String title) {
