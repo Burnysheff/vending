@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  app:
+    image: 'guider:latest'
+    build:
+      context: .
+    container_name: guider
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgres://admin:6INUFa5yfgwFGQ2RhVrKpqogMEWUy132@dpg-cj87cc5jeehc73a9h6gg-a/guides
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=6INUFa5yfgwFGQ2RhVrKpqogMEWUy132
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=6INUFa5yfgwFGQ2RhVrKpqogMEWUy132
