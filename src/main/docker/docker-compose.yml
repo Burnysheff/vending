@@ -1,22 +1,31 @@
-version: '2'
+version: '3.7'
 
 services:
   app:
-    image: 'guider:latest'
+    platform: linux/amd64
+    image: 'vending:latest'
     build:
       context: .
-    container_name: guider
+      dockerfile: Dockerfile
+    container_name: vending
+    ports:
+      - "8181:8181"
     depends_on:
       - db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgres://admin:6INUFa5yfgwFGQ2RhVrKpqogMEWUy132@dpg-cj87cc5jeehc73a9h6gg-a/guides
-      - SPRING_DATASOURCE_USERNAME=admin
-      - SPRING_DATASOURCE_PASSWORD=6INUFa5yfgwFGQ2RhVrKpqogMEWUy132
+      - SERVER_PORT= 8181
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=
+      - SPRING_DATASOURCE_PASSWORD=
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.postgresql.Driver
 
   db:
+    platform: linux/amd64
     image: 'postgres:13.1-alpine'
     container_name: db
+    ports:
+      - "15432:5432"
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=6INUFa5yfgwFGQ2RhVrKpqogMEWUy132
+      - POSTGRES_USER=
+      - POSTGRES_PASSWORD=

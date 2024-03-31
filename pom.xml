@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>edu.paper</groupId>
-	<artifactId>guider</artifactId>
+	<artifactId>vending</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>guider</name>
 	<description>Paper project</description>
